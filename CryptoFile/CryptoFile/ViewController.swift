@@ -84,13 +84,12 @@ class ViewController: NSViewController {
             if let originData: Data = fileManager.contents(atPath: self.inputPathTextField.stringValue) {
                 guard let sourceStr = self.passwordTextField.stringValue.data(using: .utf8) else { print("str to data fail ") ; return }
                 let outputFileName = ((self.inputPathTextField.stringValue as NSString).deletingPathExtension as NSString).lastPathComponent
-                print("outputFileName: \(outputFileName)")
-                let destinationPath = self.outputPathTextField.stringValue + "/" + outputFileName + "." +  CommonDefine.myExtension
-                print("destinationPath:\(destinationPath)")
-                guard let outputUrl = URL(string: destinationPath) else { print("str to url fail") ; return }
+                let destinationPath = self.outputPathTextField.stringValue
+                guard let encoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { print("str to url fail") ; return }
+                let outputUrl = URL(fileURLWithPath: encoded)
+
                 let encData = HWAESCryption.aesEncrypt(originalData: originData, iv: CryptoUtil().sha256(data: sourceStr), key: CryptoUtil().sha256(data: sourceStr), aesType: .aes256)
-                
-                try encData.write(to: outputUrl)
+                try encData.write(to: outputUrl.appendingPathComponent(outputFileName + "." +  CommonDefine.myExtension))
             }
             else {
                 print("file to data fail")
