@@ -1,0 +1,445 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3C80A35ACF61359112F8628A /* Pods_CryptoFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977A257C2E90E7C6402F8F5C /* Pods_CryptoFile.framework */; };
+		7888413C25BEDB1800C0192F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888413B25BEDB1800C0192F /* AppDelegate.swift */; };
+		7888413E25BEDB1800C0192F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888413D25BEDB1800C0192F /* ViewController.swift */; };
+		7888414025BEDB1A00C0192F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7888413F25BEDB1A00C0192F /* Assets.xcassets */; };
+		7888414325BEDB1A00C0192F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7888414125BEDB1A00C0192F /* Main.storyboard */; };
+		7888414E25BEDBFB00C0192F /* HWAESCryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888414D25BEDBFB00C0192F /* HWAESCryption.swift */; };
+		7888415225BEE08C00C0192F /* CommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888415125BEE08C00C0192F /* CommonDefine.swift */; };
+		7888415925BEE16600C0192F /* MetaDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888415825BEE16600C0192F /* MetaDataModel.swift */; };
+		7888415C25BEEE0500C0192F /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888415B25BEEE0500C0192F /* CryptoUtil.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		70AB5B76BE979DD4678641EA /* Pods-CryptoFile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoFile.release.xcconfig"; path = "Target Support Files/Pods-CryptoFile/Pods-CryptoFile.release.xcconfig"; sourceTree = "<group>"; };
+		7888413825BEDB1800C0192F /* CryptoFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7888413B25BEDB1800C0192F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7888413D25BEDB1800C0192F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7888413F25BEDB1A00C0192F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7888414225BEDB1A00C0192F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7888414425BEDB1A00C0192F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7888414525BEDB1A00C0192F /* CryptoFile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CryptoFile.entitlements; sourceTree = "<group>"; };
+		7888414D25BEDBFB00C0192F /* HWAESCryption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HWAESCryption.swift; sourceTree = "<group>"; };
+		7888415125BEE08C00C0192F /* CommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDefine.swift; sourceTree = "<group>"; };
+		7888415825BEE16600C0192F /* MetaDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaDataModel.swift; sourceTree = "<group>"; };
+		7888415B25BEEE0500C0192F /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
+		977A257C2E90E7C6402F8F5C /* Pods_CryptoFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE4AA95D8886FE075F274846 /* Pods-CryptoFile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoFile.debug.xcconfig"; path = "Target Support Files/Pods-CryptoFile/Pods-CryptoFile.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7888413525BEDB1800C0192F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C80A35ACF61359112F8628A /* Pods_CryptoFile.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		440956A208C22C60333C72B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE4AA95D8886FE075F274846 /* Pods-CryptoFile.debug.xcconfig */,
+				70AB5B76BE979DD4678641EA /* Pods-CryptoFile.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7888412F25BEDB1800C0192F = {
+			isa = PBXGroup;
+			children = (
+				7888413A25BEDB1800C0192F /* CryptoFile */,
+				7888413925BEDB1800C0192F /* Products */,
+				440956A208C22C60333C72B3 /* Pods */,
+				DC0702AA915901E0AB3C117E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		7888413925BEDB1800C0192F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7888413825BEDB1800C0192F /* CryptoFile.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7888413A25BEDB1800C0192F /* CryptoFile */ = {
+			isa = PBXGroup;
+			children = (
+				7888415425BEE0B600C0192F /* Model */,
+				7888415025BEE07F00C0192F /* Define */,
+				7888414C25BEDBB900C0192F /* Lib */,
+				7888413B25BEDB1800C0192F /* AppDelegate.swift */,
+				7888413D25BEDB1800C0192F /* ViewController.swift */,
+				7888413F25BEDB1A00C0192F /* Assets.xcassets */,
+				7888414125BEDB1A00C0192F /* Main.storyboard */,
+				7888414425BEDB1A00C0192F /* Info.plist */,
+				7888414525BEDB1A00C0192F /* CryptoFile.entitlements */,
+			);
+			path = CryptoFile;
+			sourceTree = "<group>";
+		};
+		7888414C25BEDBB900C0192F /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				7888414D25BEDBFB00C0192F /* HWAESCryption.swift */,
+				7888415B25BEEE0500C0192F /* CryptoUtil.swift */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		7888415025BEE07F00C0192F /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				7888415125BEE08C00C0192F /* CommonDefine.swift */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		7888415425BEE0B600C0192F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7888415825BEE16600C0192F /* MetaDataModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC0702AA915901E0AB3C117E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				977A257C2E90E7C6402F8F5C /* Pods_CryptoFile.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7888413725BEDB1800C0192F /* CryptoFile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7888414825BEDB1A00C0192F /* Build configuration list for PBXNativeTarget "CryptoFile" */;
+			buildPhases = (
+				48861D84D783918FBAE36DAA /* [CP] Check Pods Manifest.lock */,
+				7888413425BEDB1800C0192F /* Sources */,
+				7888413525BEDB1800C0192F /* Frameworks */,
+				7888413625BEDB1800C0192F /* Resources */,
+				60CBC2D87477CBE3D78BC85D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CryptoFile;
+			productName = CryptoFile;
+			productReference = 7888413825BEDB1800C0192F /* CryptoFile.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7888413025BEDB1800C0192F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					7888413725BEDB1800C0192F = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 7888413325BEDB1800C0192F /* Build configuration list for PBXProject "CryptoFile" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7888412F25BEDB1800C0192F;
+			productRefGroup = 7888413925BEDB1800C0192F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7888413725BEDB1800C0192F /* CryptoFile */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7888413625BEDB1800C0192F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7888414025BEDB1A00C0192F /* Assets.xcassets in Resources */,
+				7888414325BEDB1A00C0192F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48861D84D783918FBAE36DAA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CryptoFile-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60CBC2D87477CBE3D78BC85D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoFile/Pods-CryptoFile-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CryptoFile/Pods-CryptoFile-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CryptoFile/Pods-CryptoFile-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7888413425BEDB1800C0192F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7888413E25BEDB1800C0192F /* ViewController.swift in Sources */,
+				7888415225BEE08C00C0192F /* CommonDefine.swift in Sources */,
+				7888415C25BEEE0500C0192F /* CryptoUtil.swift in Sources */,
+				7888413C25BEDB1800C0192F /* AppDelegate.swift in Sources */,
+				7888415925BEE16600C0192F /* MetaDataModel.swift in Sources */,
+				7888414E25BEDBFB00C0192F /* HWAESCryption.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7888414125BEDB1A00C0192F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7888414225BEDB1A00C0192F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7888414625BEDB1A00C0192F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7888414725BEDB1A00C0192F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		7888414925BEDB1A00C0192F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE4AA95D8886FE075F274846 /* Pods-CryptoFile.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CryptoFile/CryptoFile.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P4ZJYAK634;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = CryptoFile/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanwe.CryptoFile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7888414A25BEDB1A00C0192F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70AB5B76BE979DD4678641EA /* Pods-CryptoFile.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CryptoFile/CryptoFile.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = P4ZJYAK634;
+				ENABLE_HARDENED_RUNTIME = NO;
+				INFOPLIST_FILE = CryptoFile/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanwe.CryptoFile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7888413325BEDB1800C0192F /* Build configuration list for PBXProject "CryptoFile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7888414625BEDB1A00C0192F /* Debug */,
+				7888414725BEDB1A00C0192F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7888414825BEDB1A00C0192F /* Build configuration list for PBXNativeTarget "CryptoFile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7888414925BEDB1A00C0192F /* Debug */,
+				7888414A25BEDB1A00C0192F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7888413025BEDB1800C0192F /* Project object */;
+}

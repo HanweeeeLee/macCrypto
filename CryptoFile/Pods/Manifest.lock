@@ -1,0 +1,16 @@
+PODS:
+  - FlexibleModelProtocol (1.1.5)
+
+DEPENDENCIES:
+  - FlexibleModelProtocol (~> 1.1)
+
+SPEC REPOS:
+  trunk:
+    - FlexibleModelProtocol
+
+SPEC CHECKSUMS:
+  FlexibleModelProtocol: 8af8ab4aca678b9f2a81ce80afe72810f301e785
+
+PODFILE CHECKSUM: 1405f6d3f856a7512d686bb860a3c822ab12006f
+
+COCOAPODS: 1.9.3
