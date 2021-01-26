@@ -807,9 +807,13 @@
                                     <action selector="decFileAction:" target="XfG-lQ-9wD" id="2FL-tJ-VaG"/>
                                 </connections>
                             </button>
+                            <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Wtk-mN-Ulc">
+                                <rect key="frame" x="232" y="127" width="16" height="16"/>
+                            </progressIndicator>
                         </subviews>
                         <constraints>
                             <constraint firstItem="9S6-lY-7jd" firstAttribute="top" secondItem="Tlc-6N-mAx" secondAttribute="bottom" constant="10" id="0bm-DC-RN3"/>
+                            <constraint firstItem="Wtk-mN-Ulc" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="1lW-KB-kCO"/>
                             <constraint firstItem="uO2-no-rwp" firstAttribute="top" secondItem="owz-LY-eZe" secondAttribute="bottom" constant="10" symbolic="YES" id="4b7-Yv-yKF"/>
                             <constraint firstAttribute="trailing" secondItem="ZDt-5A-V6d" secondAttribute="trailing" constant="9" id="8di-Ba-UGS"/>
                             <constraint firstItem="ZDt-5A-V6d" firstAttribute="top" secondItem="k9o-Zk-fli" secondAttribute="bottom" constant="7" id="Azg-iq-nAu"/>
@@ -825,9 +829,10 @@
                             <constraint firstItem="9S6-lY-7jd" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="Zlg-i4-Dph"/>
                             <constraint firstItem="ZDt-5A-V6d" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="uO2-no-rwp" secondAttribute="trailing" symbolic="YES" id="amC-3t-jqE"/>
                             <constraint firstItem="TvY-bq-NvQ" firstAttribute="baseline" secondItem="uO2-no-rwp" secondAttribute="firstBaseline" id="ebF-gq-V47"/>
-                            <constraint firstItem="k9o-Zk-fli" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="owz-LY-eZe" secondAttribute="trailing" symbolic="YES" id="eoW-68-p5X"/>
+                            <constraint firstItem="k9o-Zk-fli" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="owz-LY-eZe" secondAttribute="trailing" constant="8" symbolic="YES" id="eoW-68-p5X"/>
                             <constraint firstItem="owz-LY-eZe" firstAttribute="baseline" secondItem="way-Tg-RaS" secondAttribute="baseline" id="jjZ-Xj-XRa"/>
                             <constraint firstItem="P46-iP-2O0" firstAttribute="centerY" secondItem="Tlc-6N-mAx" secondAttribute="centerY" id="oUg-Dh-JOf"/>
+                            <constraint firstItem="Wtk-mN-Ulc" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="qnD-Q0-Viy"/>
                             <constraint firstItem="Sew-Fn-MXi" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="tNV-NY-lre"/>
                             <constraint firstItem="uO2-no-rwp" firstAttribute="leading" secondItem="TvY-bq-NvQ" secondAttribute="trailing" constant="11" id="v6L-Co-IY3"/>
                             <constraint firstAttribute="trailing" secondItem="k9o-Zk-fli" secondAttribute="trailing" constant="10" id="zQ1-zR-wnG"/>
@@ -836,6 +841,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="indicator" destination="Wtk-mN-Ulc" id="DyB-U2-6sz"/>
                         <outlet property="inputPathTextField" destination="owz-LY-eZe" id="TnR-I2-Lsq"/>
                         <outlet property="outputPathTextField" destination="uO2-no-rwp" id="DJp-aL-wJG"/>
                         <outlet property="passwordTextField" destination="Tlc-6N-mAx" id="kvV-zG-WKT"/>

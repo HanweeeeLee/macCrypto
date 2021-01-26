@@ -13,6 +13,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var inputPathTextField: NSTextField!
     @IBOutlet weak var outputPathTextField: NSTextField!
     @IBOutlet weak var passwordTextField: NSSecureTextField!
+    @IBOutlet weak var indicator: NSProgressIndicator!
     
     //MARK: property
     
@@ -36,6 +37,7 @@ class ViewController: NSViewController {
     func initUI() {
         self.inputPathTextField.isEnabled = false
         self.outputPathTextField.isEnabled = false
+        self.indicator.isHidden = true
     }
     
     func searchFilePath(searchDir: Bool,completeHandler: @escaping (String) -> ()) {
@@ -57,6 +59,18 @@ class ViewController: NSViewController {
             return
         }
     }
+    
+    func showAlert(title: String = "오류", message: String) {
+        DispatchQueue.main.async {
+            let alert = NSAlert()
+            alert.messageText = title
+            alert.informativeText = message
+            alert.addButton(withTitle: "확인")
+
+            alert.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
+            })
+        }
+    }
 
     //MARK: action
     @IBAction func searchInputPathAction(_ sender: Any) {
@@ -74,32 +88,42 @@ class ViewController: NSViewController {
     
     @IBAction func encFileAction(_ sender: Any) {
         if self.inputPathTextField.stringValue == "" || self.outputPathTextField.stringValue == "" || self.passwordTextField.stringValue == "" {
-            print("somthing is blank")
+            showAlert(message: "somthing is blank")
             return
         }
         
         let fileManager: FileManager = FileManager.default
         
-        do {
-            if let originData: Data = fileManager.contents(atPath: self.inputPathTextField.stringValue) {
-                guard let sourceStr = self.passwordTextField.stringValue.data(using: .utf8) else { print("str to data fail ") ; return }
-                let outputFileName = ((self.inputPathTextField.stringValue as NSString).deletingPathExtension as NSString).lastPathComponent
-                let destinationPath = self.outputPathTextField.stringValue
-                guard let encoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { print("str to url fail") ; return }
-                let outputUrl = URL(fileURLWithPath: encoded)
-
+        if let originData: Data = fileManager.contents(atPath: self.inputPathTextField.stringValue) {
+            guard let sourceStr = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
+            let outputFileName = ((self.inputPathTextField.stringValue as NSString).deletingPathExtension as NSString).lastPathComponent
+            let destinationPath = self.outputPathTextField.stringValue
+            guard let encoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
+            let outputUrl = URL(fileURLWithPath: encoded)
+            
+            DispatchQueue.global().async {
                 let encData = HWAESCryption.aesEncrypt(originalData: originData, iv: CryptoUtil().sha256(data: sourceStr), key: CryptoUtil().sha256(data: sourceStr), aesType: .aes256)
-                try encData.write(to: outputUrl.appendingPathComponent(outputFileName + "." +  CommonDefine.myExtension))
+                do {
+                    try encData.write(to: outputUrl.appendingPathComponent(outputFileName + "." +  CommonDefine.myExtension))
+                    DispatchQueue.main.async {
+                        self.indicator.stopAnimation(nil)
+                        self.indicator.isHidden = true
+                        self.showAlert(title: "성공", message: "경로 : \( "\(self.outputPathTextField.stringValue)" + "/" + outputFileName + "." +  CommonDefine.myExtension)")
+                    }
+                } catch let error as NSError {
+                    self.showAlert(message: "Error access directory: \(error.localizedDescription)")
+                }
             }
-            else {
-                print("file to data fail")
-            }
-        } catch let error as NSError {
-            print("Error access directory: \(error)")
+            self.indicator.isHidden = false
+            self.indicator.startAnimation(nil)
+        }
+        else {
+            showAlert(message: "file to data fail")
         }
     }
     
     @IBAction func decFileAction(_ sender: Any) {
+        
     }
     
 }

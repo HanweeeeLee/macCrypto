@@ -44,11 +44,11 @@
 		65F9EBA1CF0B47DAD425F5338B76C89C /* Pods-CryptoFile-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CryptoFile-acknowledgements.plist"; sourceTree = "<group>"; };
 		8475F75C83F8E1C96FD666D33EC35B78 /* Pods-CryptoFile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-CryptoFile.release.xcconfig"; sourceTree = "<group>"; };
 		86538D8A48A921FD05A02DB6D5238642 /* Pods-CryptoFile-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-CryptoFile-umbrella.h"; sourceTree = "<group>"; };
-		866AD1145CFAC3486AB5016FCC79DCE8 /* FlexibleModelProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FlexibleModelProtocol.framework; path = FlexibleModelProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		866AD1145CFAC3486AB5016FCC79DCE8 /* FlexibleModelProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FlexibleModelProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88E4E9E9D1222FE9E7F4510F677631BF /* Pods-CryptoFile-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-CryptoFile-Info.plist"; sourceTree = "<group>"; };
 		9CF64A6E44A8869EA16B38B82C0ABF9C /* Pods-CryptoFile.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-CryptoFile.modulemap"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		AE4F840EEB783CD5824D544F689DC391 /* Pods_CryptoFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_CryptoFile.framework; path = "Pods-CryptoFile.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AE4F840EEB783CD5824D544F689DC391 /* Pods_CryptoFile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoFile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5370C2AA8EDBB4E572A248743309806 /* FlexibleModelProtocol-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlexibleModelProtocol-prefix.pch"; sourceTree = "<group>"; };
 		BD56DB831BAE9DC847C905BA481EE3C7 /* HWXMLEelement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HWXMLEelement.swift; path = FlexibleModelProtocol/FlexibleModelProtocol/HWXMLEelement.swift; sourceTree = "<group>"; };
 		E28BCD06FD708636AAEA96A68FAAE88A /* FMPCopyOnWriteExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FMPCopyOnWriteExtension.swift; path = FlexibleModelProtocol/FlexibleModelProtocol/FMPCopyOnWriteExtension.swift; sourceTree = "<group>"; };
@@ -103,7 +103,6 @@
 				65EC155BF3CAE41E1C480D6DA4E0D859 /* HWXMLParser.swift */,
 				40B50DFABC7799AA28E878B9D54C1BE1 /* Support Files */,
 			);
-			name = FlexibleModelProtocol;
 			path = FlexibleModelProtocol;
 			sourceTree = "<group>";
 		};
@@ -243,7 +242,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1220;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -340,6 +339,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -400,6 +400,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -442,7 +443,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0FB2850C9B61C881D14A001DFF3AE0A1 /* FlexibleModelProtocol.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -480,7 +480,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3AEF19973E14D0E1AE5E6391BC16EF2C /* FlexibleModelProtocol.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -519,7 +518,6 @@
 			baseConfigurationReference = F7DF58BEF900FD1AD9FC29F36082DF53 /* Pods-CryptoFile.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -559,7 +557,6 @@
 			baseConfigurationReference = 8475F75C83F8E1C96FD666D33EC35B78 /* Pods-CryptoFile.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
