@@ -100,11 +100,13 @@ class ViewController: NSViewController {
             let destinationPath = self.outputPathTextField.stringValue
             guard let encoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
             let outputUrl = URL(fileURLWithPath: encoded)
-            
+            let metaData: MetaDataModel = MetaDataModel(originalFileName: (self.inputPathTextField.stringValue as NSString).lastPathComponent, fileEncDate: Date())
             DispatchQueue.global().async {
                 let encData = HWAESCryption.aesEncrypt(originalData: originData, iv: CryptoUtil().sha256(data: sourceStr), key: CryptoUtil().sha256(data: sourceStr), aesType: .aes256)
+                let writeStr: String = metaData.toJson() + CommonDefine.seperator + encData.base64EncodedString()
+                let writeData: Data = writeStr.data(using: .utf8)!
                 do {
-                    try encData.write(to: outputUrl.appendingPathComponent(outputFileName + "." +  CommonDefine.myExtension))
+                    try writeData.write(to: outputUrl.appendingPathComponent(outputFileName + "." +  CommonDefine.myExtension))
                     DispatchQueue.main.async {
                         self.indicator.stopAnimation(nil)
                         self.indicator.isHidden = true
