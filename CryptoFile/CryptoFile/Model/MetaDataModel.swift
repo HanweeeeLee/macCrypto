@@ -9,7 +9,7 @@ import Cocoa
 import FlexibleModelProtocol
 
 struct MetaDataModel: FlexibleModelProtocol {
-    var originalFileName: String
-    var fileEncDate: Date
+    var originalFileName: String = ""
+    var fileEncDate: Date?
     var modelVersion: UInt = CommonDefine.modelVersion
 }

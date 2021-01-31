@@ -102,7 +102,7 @@ class ViewController: NSViewController {
             let outputUrl = URL(fileURLWithPath: encoded)
             let metaData: MetaDataModel = MetaDataModel(originalFileName: (self.inputPathTextField.stringValue as NSString).lastPathComponent, fileEncDate: Date())
             DispatchQueue.global().async {
-                let encData = HWAESCryption.aesEncrypt(originalData: originData, iv: CryptoUtil().sha256(data: sourceStr), key: CryptoUtil().sha256(data: sourceStr), aesType: .aes256)
+                let encData = HWAESCryption.aesEncrypt(originalData: originData, key: CryptoUtil().sha256(data: sourceStr), aesType: .aes256)
                 let writeStr: String = metaData.toJson() + CommonDefine.seperator + encData.base64EncodedString()
                 let writeData: Data = writeStr.data(using: .utf8)!
                 do {
@@ -125,7 +125,62 @@ class ViewController: NSViewController {
     }
     
     @IBAction func decFileAction(_ sender: Any) {
+        if self.inputPathTextField.stringValue == "" || self.outputPathTextField.stringValue == "" || self.passwordTextField.stringValue == "" {
+            showAlert(message: "somthing is blank")
+            return
+        }
         
+        let fileManager: FileManager = FileManager.default
+        
+        if let originData: Data = fileManager.contents(atPath: self.inputPathTextField.stringValue) {
+            guard let originDataStr: String = String.init(data: originData, encoding: .utf8) else {
+                showAlert(message: "data to string fail")
+                return
+            }
+            let seperatedArr = originDataStr.components(separatedBy: CommonDefine.seperator)
+            if seperatedArr.count < 2 {
+                showAlert(message: "invalid data")
+                return
+            }
+            guard let model: MetaDataModel = MetaDataModel.fromJson(jsonData: seperatedArr[0].data(using: .utf8), object: MetaDataModel()) else {
+                showAlert(message: "invalid data")
+                return
+            }
+            guard let sourceData: Data = seperatedArr[1].data(using: .utf8) else {
+                showAlert(message: "invalid data")
+                return
+            }
+            if model.modelVersion > CommonDefine.modelVersion {
+                showAlert(message: "상위버전에서 암호화된 파일입니다.")
+                return
+            }
+            guard let pwStr = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
+            let destinationPath = self.outputPathTextField.stringValue
+            guard let decoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
+            
+            DispatchQueue.global().async {
+                guard let decData = HWAESCryption.aesDecrypt(encData: sourceData, key: CryptoUtil().sha256(data: pwStr), aesType: .aes256) else {
+                    print("invalid data")
+                    return
+                }
+                let outputUrl = URL(fileURLWithPath: decoded)
+                do {
+                    try decData.write(to: outputUrl.appendingPathComponent(model.originalFileName))
+                    DispatchQueue.main.async {
+                        self.indicator.stopAnimation(nil)
+                        self.indicator.isHidden = true
+                        self.showAlert(title: "성공", message: "경로 : \( "\(self.outputPathTextField.stringValue)" + "/" + model.originalFileName)")
+                    }
+                } catch let error as NSError {
+                    self.showAlert(message: "Error access directory: \(error.localizedDescription)")
+                }
+            }
+            self.indicator.isHidden = false
+            self.indicator.startAnimation(nil)
+        }
+        else {
+            showAlert(message: "file to data fail")
+        }
     }
     
 }

@@ -82,3 +82,14 @@ class HWAESCryption {
     }
 }
 
+extension HWAESCryption {
+    static func aesEncrypt(originalData: Data ,key: Data ,aesType: HW_AES_Type) -> Data {
+        let iv:Data = originalData.subdata(in: 0..<256)
+        return aesEncrypt(originalData: originalData, iv: iv, key: key, aesType: aesType)
+    }
+    
+    static func aesDecrypt(encData: Data ,key: Data ,aesType: HW_AES_Type) -> Data? {
+        let iv:Data = encData.subdata(in: 0..<256)
+        return aesDecrypt(encData: encData, iv: iv, key: key, aesType: aesType)
+    }
+}
