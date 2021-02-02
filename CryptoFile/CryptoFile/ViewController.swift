@@ -75,7 +75,6 @@ class ViewController: NSViewController {
     //MARK: action
     @IBAction func searchInputPathAction(_ sender: Any) {
         self.searchFilePath(searchDir: false, completeHandler: { [weak self] path in
-//            self?.originFileName = (path as NSString).lastPathComponent
             self?.inputPathTextField.stringValue = path
         })
     }
@@ -102,8 +101,8 @@ class ViewController: NSViewController {
             let outputUrl = URL(fileURLWithPath: encoded)
             let metaData: MetaDataModel = MetaDataModel(originalFileName: (self.inputPathTextField.stringValue as NSString).lastPathComponent, fileEncDate: Date())
             DispatchQueue.global().async {
-                let encData = HWAESCryption.aesEncrypt(originalData: originData, key: CryptoUtil().sha256(data: sourceStr), aesType: .aes256)
-                let writeStr: String = metaData.toJson() + CommonDefine.seperator + encData.base64EncodedString()
+                let encData = HWAESCryption.aesShortEncrypt(data: originData, key: sourceStr, aesType: .aes256)
+                let writeStr: String = metaData.toJson() + CommonDefine.seperator + encData!.base64EncodedString()
                 let writeData: Data = writeStr.data(using: .utf8)!
                 do {
                     try writeData.write(to: outputUrl.appendingPathComponent(outputFileName + "." +  CommonDefine.myExtension))
@@ -146,20 +145,23 @@ class ViewController: NSViewController {
                 showAlert(message: "invalid data")
                 return
             }
-            guard let sourceData: Data = seperatedArr[1].data(using: .utf8) else {
+            
+            guard let sourceData: Data = Data(base64Encoded: seperatedArr[1]) else {
                 showAlert(message: "invalid data")
                 return
             }
+            
             if model.modelVersion > CommonDefine.modelVersion {
                 showAlert(message: "상위버전에서 암호화된 파일입니다.")
                 return
             }
+            
             guard let pwStr = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
             let destinationPath = self.outputPathTextField.stringValue
             guard let decoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
             
             DispatchQueue.global().async {
-                guard let decData = HWAESCryption.aesDecrypt(encData: sourceData, key: CryptoUtil().sha256(data: pwStr), aesType: .aes256) else {
+                guard let decData = HWAESCryption.aesShortDecrypt(encData: sourceData, key: pwStr, aesType: .aes256) else {
                     print("invalid data")
                     return
                 }

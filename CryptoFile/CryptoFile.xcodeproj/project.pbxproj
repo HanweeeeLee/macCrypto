@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3C80A35ACF61359112F8628A /* Pods_CryptoFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977A257C2E90E7C6402F8F5C /* Pods_CryptoFile.framework */; };
+		782EE03B25C97A4300955146 /* HWAESCryptionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782EE03A25C97A4300955146 /* HWAESCryptionExtension.swift */; };
+		782EE03F25C993ED00955146 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782EE03E25C993ED00955146 /* DataExtension.swift */; };
 		7888413C25BEDB1800C0192F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888413B25BEDB1800C0192F /* AppDelegate.swift */; };
 		7888413E25BEDB1800C0192F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888413D25BEDB1800C0192F /* ViewController.swift */; };
 		7888414025BEDB1A00C0192F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7888413F25BEDB1A00C0192F /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		70AB5B76BE979DD4678641EA /* Pods-CryptoFile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoFile.release.xcconfig"; path = "Target Support Files/Pods-CryptoFile/Pods-CryptoFile.release.xcconfig"; sourceTree = "<group>"; };
+		782EE03A25C97A4300955146 /* HWAESCryptionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWAESCryptionExtension.swift; sourceTree = "<group>"; };
+		782EE03E25C993ED00955146 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
 		7888413825BEDB1800C0192F /* CryptoFile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoFile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7888413B25BEDB1800C0192F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7888413D25BEDB1800C0192F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		782EE03D25C993E300955146 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				782EE03E25C993ED00955146 /* DataExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		7888412F25BEDB1800C0192F = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +89,7 @@
 		7888413A25BEDB1800C0192F /* CryptoFile */ = {
 			isa = PBXGroup;
 			children = (
+				782EE03D25C993E300955146 /* Extension */,
 				7888415425BEE0B600C0192F /* Model */,
 				7888415025BEE07F00C0192F /* Define */,
 				7888414C25BEDBB900C0192F /* Lib */,
@@ -94,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				7888414D25BEDBFB00C0192F /* HWAESCryption.swift */,
+				782EE03A25C97A4300955146 /* HWAESCryptionExtension.swift */,
 				7888415B25BEEE0500C0192F /* CryptoUtil.swift */,
 			);
 			path = Lib;
@@ -239,7 +253,9 @@
 				7888413E25BEDB1800C0192F /* ViewController.swift in Sources */,
 				7888415225BEE08C00C0192F /* CommonDefine.swift in Sources */,
 				7888415C25BEEE0500C0192F /* CryptoUtil.swift in Sources */,
+				782EE03B25C97A4300955146 /* HWAESCryptionExtension.swift in Sources */,
 				7888413C25BEDB1800C0192F /* AppDelegate.swift in Sources */,
+				782EE03F25C993ED00955146 /* DataExtension.swift in Sources */,
 				7888415925BEE16600C0192F /* MetaDataModel.swift in Sources */,
 				7888414E25BEDBFB00C0192F /* HWAESCryption.swift in Sources */,
 			);
