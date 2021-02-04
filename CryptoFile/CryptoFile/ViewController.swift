@@ -94,14 +94,14 @@ class ViewController: NSViewController {
         let fileManager: FileManager = FileManager.default
         
         if let originData: Data = fileManager.contents(atPath: self.inputPathTextField.stringValue) {
-            guard let sourceStr: Data = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
+            guard let pwData: Data = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
             let outputFileName = ((self.inputPathTextField.stringValue as NSString).deletingPathExtension as NSString).lastPathComponent
             let destinationPath = self.outputPathTextField.stringValue
-            guard let encoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
-            let outputUrl = URL(fileURLWithPath: encoded)
-            let metaData: MetaDataModel = MetaDataModel(originalFileName: (self.inputPathTextField.stringValue as NSString).lastPathComponent, fileEncDate: Date(), originHash: CryptoUtil().sha512(data: sourceStr).base64EncodedString())
+            guard let encodedPath = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
+            let outputUrl = URL(fileURLWithPath: encodedPath)
+            let metaData: MetaDataModel = MetaDataModel(originalFileName: (self.inputPathTextField.stringValue as NSString).lastPathComponent, fileEncDate: Date(), originHash: CryptoUtil().sha512(data: pwData).base64EncodedString())
             DispatchQueue.global().async {
-                let encData = HWAESCryption.aesShortEncrypt(data: originData, key: sourceStr, aesType: .aes256)
+                let encData = HWAESCryption.aesShortEncrypt(data: originData, key: pwData, aesType: .aes256)
                 let writeStr: String = metaData.toJson() + CommonDefine.seperator + encData!.base64EncodedString()
                 let writeData: Data = writeStr.data(using: .utf8)!
                 do {
@@ -113,6 +113,8 @@ class ViewController: NSViewController {
                     }
                 } catch let error as NSError {
                     self.showAlert(message: "Error access directory: \(error.localizedDescription)")
+                    self.indicator.isHidden = false
+                    self.indicator.startAnimation(nil)
                 }
             }
             self.indicator.isHidden = false
@@ -156,20 +158,20 @@ class ViewController: NSViewController {
                 return
             }
             
-            guard let pwStr = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
-            if CryptoUtil().sha512(data: pwStr).base64EncodedString() != model.originHash {
+            guard let pwData = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
+            if CryptoUtil().sha512(data: pwData).base64EncodedString() != model.originHash {
                 showAlert(message: "비밀번호가 틀렸습니다.")
                 return
             }
             let destinationPath = self.outputPathTextField.stringValue
-            guard let decoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
+            guard let decodedPath = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
             
             DispatchQueue.global().async {
-                guard let decData = HWAESCryption.aesShortDecrypt(encData: sourceData, key: pwStr, aesType: .aes256) else {
+                guard let decData = HWAESCryption.aesShortDecrypt(encData: sourceData, key: pwData, aesType: .aes256) else {
                     print("invalid data")
                     return
                 }
-                let outputUrl = URL(fileURLWithPath: decoded)
+                let outputUrl = URL(fileURLWithPath: decodedPath)
                 do {
                     try decData.write(to: outputUrl.appendingPathComponent(model.originalFileName))
                     DispatchQueue.main.async {
@@ -179,6 +181,8 @@ class ViewController: NSViewController {
                     }
                 } catch let error as NSError {
                     self.showAlert(message: "Error access directory: \(error.localizedDescription)")
+                    self.indicator.stopAnimation(nil)
+                    self.indicator.isHidden = true
                 }
             }
             self.indicator.isHidden = false
