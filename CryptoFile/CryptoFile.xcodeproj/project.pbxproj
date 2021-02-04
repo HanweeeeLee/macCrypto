@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3C80A35ACF61359112F8628A /* Pods_CryptoFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 977A257C2E90E7C6402F8F5C /* Pods_CryptoFile.framework */; };
+		4FC4798C25CB7189000A2D8E /* AboudWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4798A25CB7189000A2D8E /* AboudWindow.swift */; };
+		4FC4798D25CB7189000A2D8E /* AboudWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FC4798B25CB7189000A2D8E /* AboudWindow.xib */; };
 		782EE03B25C97A4300955146 /* HWAESCryptionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782EE03A25C97A4300955146 /* HWAESCryptionExtension.swift */; };
 		782EE03F25C993ED00955146 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782EE03E25C993ED00955146 /* DataExtension.swift */; };
 		7888413C25BEDB1800C0192F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7888413B25BEDB1800C0192F /* AppDelegate.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4FC4798A25CB7189000A2D8E /* AboudWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboudWindow.swift; sourceTree = "<group>"; };
+		4FC4798B25CB7189000A2D8E /* AboudWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboudWindow.xib; sourceTree = "<group>"; };
 		70AB5B76BE979DD4678641EA /* Pods-CryptoFile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoFile.release.xcconfig"; path = "Target Support Files/Pods-CryptoFile/Pods-CryptoFile.release.xcconfig"; sourceTree = "<group>"; };
 		782EE03A25C97A4300955146 /* HWAESCryptionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWAESCryptionExtension.swift; sourceTree = "<group>"; };
 		782EE03E25C993ED00955146 /* DataExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
@@ -60,6 +64,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4FC4798925CB7177000A2D8E /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				4FC4798A25CB7189000A2D8E /* AboudWindow.swift */,
+				4FC4798B25CB7189000A2D8E /* AboudWindow.xib */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
 		782EE03D25C993E300955146 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +102,7 @@
 		7888413A25BEDB1800C0192F /* CryptoFile */ = {
 			isa = PBXGroup;
 			children = (
+				4FC4798925CB7177000A2D8E /* Windows */,
 				782EE03D25C993E300955146 /* Extension */,
 				7888415425BEE0B600C0192F /* Model */,
 				7888415025BEE07F00C0192F /* Define */,
@@ -196,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FC4798D25CB7189000A2D8E /* AboudWindow.xib in Resources */,
 				7888414025BEDB1A00C0192F /* Assets.xcassets in Resources */,
 				7888414325BEDB1A00C0192F /* Main.storyboard in Resources */,
 			);
@@ -254,6 +269,7 @@
 				7888415225BEE08C00C0192F /* CommonDefine.swift in Sources */,
 				7888415C25BEEE0500C0192F /* CryptoUtil.swift in Sources */,
 				782EE03B25C97A4300955146 /* HWAESCryptionExtension.swift in Sources */,
+				4FC4798C25CB7189000A2D8E /* AboudWindow.swift in Sources */,
 				7888413C25BEDB1800C0192F /* AppDelegate.swift in Sources */,
 				782EE03F25C993ED00955146 /* DataExtension.swift in Sources */,
 				7888415925BEE16600C0192F /* MetaDataModel.swift in Sources */,
@@ -419,7 +435,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = CryptoFile/CryptoFile.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = P4ZJYAK634;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -430,6 +446,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hanwe.CryptoFile;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

@@ -16,4 +16,12 @@ class CryptoUtil: NSObject {
         }
         return Data(hash)
     }
+    
+    func sha512(data : Data) -> Data {
+        var hash = [UInt8](repeating: 0,  count: Int(CC_SHA512_DIGEST_LENGTH))
+        data.withUnsafeBytes {
+            _ = CC_SHA512($0.baseAddress, CC_LONG(data.count), &hash)
+        }
+        return Data(hash)
+    }
 }

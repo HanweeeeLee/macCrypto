@@ -10,7 +10,7 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    
+    let aboutWindowController: AboudWindow = AboudWindow.init(windowNibName: "AboudWindow")
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -21,6 +21,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-
+    @IBAction func clickedAboutItem(_ sender: Any) {
+        self.aboutWindowController.showWindow(nil)
+    }
+    
 }
 

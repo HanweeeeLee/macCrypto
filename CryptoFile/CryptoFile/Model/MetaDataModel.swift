@@ -12,4 +12,5 @@ struct MetaDataModel: FlexibleModelProtocol {
     var originalFileName: String = ""
     var fileEncDate: Date?
     var modelVersion: UInt = CommonDefine.modelVersion
+    var originHash: String = ""
 }

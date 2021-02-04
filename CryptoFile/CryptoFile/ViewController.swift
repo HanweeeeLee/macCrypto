@@ -94,12 +94,12 @@ class ViewController: NSViewController {
         let fileManager: FileManager = FileManager.default
         
         if let originData: Data = fileManager.contents(atPath: self.inputPathTextField.stringValue) {
-            guard let sourceStr = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
+            guard let sourceStr: Data = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
             let outputFileName = ((self.inputPathTextField.stringValue as NSString).deletingPathExtension as NSString).lastPathComponent
             let destinationPath = self.outputPathTextField.stringValue
             guard let encoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
             let outputUrl = URL(fileURLWithPath: encoded)
-            let metaData: MetaDataModel = MetaDataModel(originalFileName: (self.inputPathTextField.stringValue as NSString).lastPathComponent, fileEncDate: Date())
+            let metaData: MetaDataModel = MetaDataModel(originalFileName: (self.inputPathTextField.stringValue as NSString).lastPathComponent, fileEncDate: Date(), originHash: CryptoUtil().sha512(data: sourceStr).base64EncodedString())
             DispatchQueue.global().async {
                 let encData = HWAESCryption.aesShortEncrypt(data: originData, key: sourceStr, aesType: .aes256)
                 let writeStr: String = metaData.toJson() + CommonDefine.seperator + encData!.base64EncodedString()
@@ -157,6 +157,10 @@ class ViewController: NSViewController {
             }
             
             guard let pwStr = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
+            if CryptoUtil().sha512(data: pwStr).base64EncodedString() != model.originHash {
+                showAlert(message: "비밀번호가 틀렸습니다.")
+                return
+            }
             let destinationPath = self.outputPathTextField.stringValue
             guard let decoded = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
             
