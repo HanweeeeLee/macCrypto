@@ -134,39 +134,39 @@ class ViewController: NSViewController {
         let fileManager: FileManager = FileManager.default
         
         if let originData: Data = fileManager.contents(atPath: self.inputPathTextField.stringValue) {
-            guard let originDataStr: String = String.init(data: originData, encoding: .utf8) else {
-                showAlert(message: "data to string fail")
-                return
-            }
-            let seperatedArr = originDataStr.components(separatedBy: CommonDefine.seperator)
-            if seperatedArr.count < 2 {
-                showAlert(message: "invalid data")
-                return
-            }
-            guard let model: MetaDataModel = MetaDataModel.fromJson(jsonData: seperatedArr[0].data(using: .utf8), object: MetaDataModel()) else {
-                showAlert(message: "invalid data")
-                return
-            }
-            
-            guard let sourceData: Data = Data(base64Encoded: seperatedArr[1]) else {
-                showAlert(message: "invalid data")
-                return
-            }
-            
-            if model.modelVersion > CommonDefine.modelVersion {
-                showAlert(message: "상위버전에서 암호화된 파일입니다.")
-                return
-            }
-            
-            guard let pwData = self.passwordTextField.stringValue.data(using: .utf8) else { showAlert(message: "str to data fail") ; return }
-            if CryptoUtil().sha512(data: pwData).base64EncodedString() != model.originHash {
-                showAlert(message: "비밀번호가 틀렸습니다.")
-                return
-            }
-            let destinationPath = self.outputPathTextField.stringValue
-            guard let decodedPath = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { showAlert(message: "str to url fail") ; return }
-            
             DispatchQueue.global().async {
+                guard let originDataStr: String = String.init(data: originData, encoding: .utf8) else {
+                    self.showAlert(message: "data to string fail")
+                    return
+                }
+                let seperatedArr = originDataStr.components(separatedBy: CommonDefine.seperator)
+                if seperatedArr.count < 2 {
+                    self.showAlert(message: "invalid data")
+                    return
+                }
+                guard let model: MetaDataModel = MetaDataModel.fromJson(jsonData: seperatedArr[0].data(using: .utf8), object: MetaDataModel()) else {
+                    self.showAlert(message: "invalid data")
+                    return
+                }
+                
+                guard let sourceData: Data = Data(base64Encoded: seperatedArr[1]) else {
+                    self.showAlert(message: "invalid data")
+                    return
+                }
+                
+                if model.modelVersion > CommonDefine.modelVersion {
+                    self.showAlert(message: "상위버전에서 암호화된 파일입니다.")
+                    return
+                }
+                
+                guard let pwData = self.passwordTextField.stringValue.data(using: .utf8) else { self.showAlert(message: "str to data fail") ; return }
+                if CryptoUtil().sha512(data: pwData).base64EncodedString() != model.originHash {
+                    self.showAlert(message: "비밀번호가 틀렸습니다.")
+                    return
+                }
+                let destinationPath = self.outputPathTextField.stringValue
+                guard let decodedPath = destinationPath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { self.showAlert(message: "str to url fail") ; return }
+                
                 guard let decData = HWAESCryption.aesShortDecrypt(encData: sourceData, key: pwData, aesType: .aes256) else {
                     print("invalid data")
                     return
